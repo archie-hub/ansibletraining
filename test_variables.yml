@@ -1,8 +1,8 @@
 - name: Test variables
   hosts: node1
+  vars_files: myvars.yml
   vars:
     fav_color: green
-    ports: [22,80,443]
   tasks:
     - name: Show color
       debug:
@@ -13,3 +13,6 @@
     - name: Show port
       debug:
         msg: My chosen ports is {{ ports[0] }}
+    - name: show bog uuid
+      debug:
+        msg: UID of bob is {{ users.bob.uid }}
