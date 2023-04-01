@@ -1,0 +1,9 @@
+192.168.0.31 master
+192.168.0.32 node1
+#192.168.0.33 
+192.168.0.34 ansible3
+192.168.0.35 ansible4
+192.168.0.37 ubuntu1
+
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6

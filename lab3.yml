@@ -1,0 +1,16 @@
+- name: install nmap pl
+  hosts: all
+  tasks:
+    - name: install nmap
+      package:
+        name: nmap
+        state: present
+
+- name: Archive file thing
+  hosts: all
+  tasks:
+    - name: Archive files
+      archive:
+        format: bz2
+        path: /home/
+        dest: /tmp/home.tar.xz
