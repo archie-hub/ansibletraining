@@ -16,3 +16,6 @@ node1
 
 [general]
 master
+
+[control]
+rhel1
