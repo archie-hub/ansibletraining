@@ -1,0 +1,20 @@
+- name: working variables
+  hosts: node1
+  vars:
+    fav_color: green
+  tasks:
+    - name: Load the variables
+      include_vars: myvars.yml
+
+    - name: Show color
+      debug:
+        msg: My favourite color is {{ fav_color }}
+    - name: Show ports
+      debug:
+        msg: My chosen ports are {{ ports }}
+    - name: Show port
+      debug:
+        msg: My chosen ports is {{ ports[0] }}
+    - name: show bog uuid
+      debug:
+        msg: UID of bob is {{ users.bob.uid }}
