@@ -6,5 +6,8 @@
        firewalld:
           permanent: yes
           immediate: yes
-          service: http
+          service: "{{ item }}" 
           state: enabled
+       loop:
+         - http
+         - ssh
