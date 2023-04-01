@@ -1,0 +1,20 @@
+---
+- hosts: node1
+  vars:
+    # Use "targeted" SELinux policy type
+    selinux_policy: targeted
+    # Set "enforcing" mode
+    selinux_state: enforcing
+    selinux_fcontexts:
+      - { target: '/web(/.*)?', setype: 'httpd_sys_content_t', ftype: 'd' }
+    selinux_restore_dirs:
+      - /web
+
+  pre_tasks:
+    - name: Creates directory
+      file:
+        path: /web
+        state: directory
+        mode: "0755"
+  roles:
+    - role: linux-system-roles.selinux
