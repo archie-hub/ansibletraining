@@ -1,0 +1,12 @@
+---
+- name: Install NFS on centos
+  hosts: all
+  tasks:
+   - name: Install NFS
+     block:
+        - name: Install http
+          yum:
+            name: nfs-utils
+            state: latest
+          when:
+            ansible_facts.distribution == "CentOS"
