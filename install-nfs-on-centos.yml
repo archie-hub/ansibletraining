@@ -4,7 +4,7 @@
   tasks:
    - name: Install NFS
      block:
-        - name: Install http
+        - name: Install NFS utils
           yum:
             name: nfs-utils
             state: latest
