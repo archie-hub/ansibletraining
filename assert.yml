@@ -1,0 +1,19 @@
+---
+- name:
+  hosts: ansible1
+  tasks:
+    - name: check free memory
+      assert:
+        that: "{{ ansible_facts['memfree_mb'] > 50}}"
+        fail_msg: "Low memory"
+
+    - name: get file info
+      stat:
+        path: /etc/motd
+      register: motd  
+
+    - name: assert /etc/motd is a directory
+      assert:
+        that: motd.stat.isdir
+        fail_msg: "/etc/motd is not a directory"
+
