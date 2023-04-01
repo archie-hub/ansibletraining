@@ -9,7 +9,6 @@
           command: uptime
         - name: bad command
           command: blah
-          ignore_errors: yes
         - name: Never gets this far
           debug:
             msg: "I never run"
@@ -18,4 +17,7 @@
           debug:
             msg: "Block failed"
 
-  
+      always:
+        - name: This will always run
+          debug:
+            msg: "I allways run"
