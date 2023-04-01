@@ -1,0 +1,15 @@
+- name: Test variables
+  hosts: node1
+  vars:
+    fav_color: green
+    ports: [22,80,443]
+  tasks:
+    - name: Show color
+      debug:
+        msg: My favourite color is {{ fav_color }}
+    - name: Show ports
+      debug:
+        msg: My chosen ports are {{ ports }}
+    - name: Show port
+      debug:
+        msg: My chosen ports is {{ ports[0] }}
