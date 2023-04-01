@@ -1,0 +1,9 @@
+[webservers]
+ansible3
+ansible4
+
+[proxy]
+ubuntu1
+
+[dbservers]
+node1
