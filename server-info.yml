@@ -1,0 +1,9 @@
+
+---
+- name: Server info
+  hosts: all
+  tasks:
+    - name: Create serverinfo.txt using jinja2
+      template:
+        src: info.j2
+        dest: /tmp/server-info.txt
