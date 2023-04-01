@@ -9,3 +9,7 @@
       debug:
         msg: "You are free!"
       when: weekend and not on_call | bool
+    - name: Fail if again is undefined
+      fail:
+        msg: "Again needs to be defined"
+      when: again is undefined
