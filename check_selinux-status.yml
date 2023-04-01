@@ -1,0 +1,12 @@
+---
+- name: Check selinux status
+  hosts: all
+  tasks:
+    - name: Display SELINUX status
+      debug:
+        msg: "{{ ansible_facts.selinux.status }}"
+
+    - name: Create selinux out
+      template:
+        src: selinux.j2
+        dest: /tmp/selinux.out
