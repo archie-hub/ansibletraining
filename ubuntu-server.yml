@@ -1,0 +1,9 @@
+---
+- name: Using when with facts
+  hosts: all
+  tasks:
+    - name: Detect Ubuntu Servers
+      debug:
+        msg: "This is an ubuntu server - {{ ansible_facts.fqdn }}"
+      when: ansible_facts['distribution'] == "Ubuntu"
+
