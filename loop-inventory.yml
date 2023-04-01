@@ -1,0 +1,7 @@
+---
+- name: Loop over inventory
+  hosts: node1
+  tasks:
+    - name: Ping all hosts from Node1
+      command: ping -c 1 "{{ item }}"
+      loop: "{{ groups['all']}}"
