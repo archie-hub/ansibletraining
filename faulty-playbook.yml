@@ -1,0 +1,10 @@
+---
+- name: Playbook to test failure
+  hosts: ansible1
+  vars:  
+    blog: "Blah Blah"
+  
+  tasks:
+    - name: Print something
+      debug:
+        msg : "{{ blog }}"
