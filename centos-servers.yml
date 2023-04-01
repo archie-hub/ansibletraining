@@ -1,0 +1,22 @@
+---
+- name: Use register to find centos machines
+  hosts: all
+  tasks:
+    - name: Whats in os-release
+      command: cat /etc/os-release
+      register: os_release
+    - name: myuptime name
+      command: uptime
+      register: myuptime
+    - name: Detect Centos systems
+      debug:
+        msg: "Running Centos {{ ansible_facts.fqdn }} {{ myuptime.stdout}}"
+      when: 
+        os_release.stdout.find('CentOS') != -1
+    - name: Reboot Centos systems called ansible3
+      reboot:
+        msg: "Running Centos {{ ansible_facts.fqdn }} {{ myuptime.stdout}}"
+      when: > 
+        os_release.stdout.find('CentOS') != -1 and
+        ansible_facts.fqdn == "ansible3"
+
