@@ -1,3 +1,9 @@
+#192.168.0.33 ansible3.localdomain ansible3.localdomain.localdomain
+#192.168.0.34 ansible4.localdomain ansible4.localdomain.localdomain
+#192.168.0.37 ubuntu1.localdomain ubuntu1.localdomain.localdomain
+#192.168.0.38 node1.localdomain node1.localdomain.localdomain
+#192.168.0.39 master master.localdomain
+
 [webservers]
 ansible3
 ansible4
@@ -7,3 +13,6 @@ ubuntu1
 
 [dbservers]
 node1
+
+[general]
+master
