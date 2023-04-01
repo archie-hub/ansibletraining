@@ -1,0 +1,7 @@
+---
+- name: Test local
+  hosts: node1
+  tasks:
+    - name : Test this
+      debug:
+        msg: Test {{ ansible_local.cool.fun.octopus }}
