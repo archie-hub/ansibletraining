@@ -1,0 +1,20 @@
+---
+- name: show free
+  hosts: all
+  tasks:
+    - name: Run a command
+      command: free -h
+      register: free_h
+
+    - name: Inspect free
+      debug:
+        var: free_h
+
+    - name: Show the server
+      debug:
+        msg: "{{ free_h }}"
+        #msg: server_uptime
+        #
+    - name: ipv4
+      debug:
+        msg: "{{ ansible_facts.default_ipv4.address }}"
