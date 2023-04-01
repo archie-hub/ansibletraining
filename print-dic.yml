@@ -1,0 +1,13 @@
+---
+- name: print dict
+  hosts: node1
+  vars:
+    employee:
+      name: "Ansible"
+      title: "service account"
+      company: "Some account"
+  tasks:
+    - name: Print name
+      debug:
+        msg: "{{ item }}"
+      loop: "{{employee | dict2items}}"
