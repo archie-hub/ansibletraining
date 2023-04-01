@@ -1,0 +1,8 @@
+---
+- name: Accessing Vaults in Playbooks
+  hosts: ansible3
+  vars_files: web-secrets.yml
+  tasks:
+    - name: Show secret value
+      debug:
+        msg: "{{secret1}} ,{{ secret2}}"
