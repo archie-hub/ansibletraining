@@ -1,0 +1,18 @@
+---
+- name: Install and start apache
+  hosts: webservers
+  tasks:
+   - name: Install and start apache
+     block:
+        - name: Install http
+          yum:
+            name: httpd
+            state: latest
+        - name: Start and enable httpd
+          service:
+            name: httpd
+            state: started
+            enabled: yes
+   - name: Outside block
+     debug:
+       msg: "Outside block now"
