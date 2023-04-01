@@ -1,0 +1,16 @@
+---
+- name: Register playbook
+  hosts: proxy
+  tasks:
+    - name: Run a command
+      command: uptime
+      register: server_uptime
+
+    - name: Inspect the server uptime
+      debug:
+        var: server_uptime
+
+    - name: Show the server
+      debug:
+        msg: "{{ server_uptime}}"
+        #msg: server_uptime
