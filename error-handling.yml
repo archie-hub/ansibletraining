@@ -1,0 +1,21 @@
+---
+- name: blah
+  hosts: all
+  tasks:
+    - name: blah block
+
+      block:
+        - name: run a command
+          command: uptime
+        - name: bad command
+          command: blah
+          ignore_errors: yes
+        - name: Never gets this far
+          debug:
+            msg: "I never run"
+      rescue:
+        - name: Runs when a block fails
+          debug:
+            msg: "Block failed"
+
+  
