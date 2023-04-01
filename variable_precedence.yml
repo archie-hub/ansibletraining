@@ -1,0 +1,8 @@
+- name: Understanding Variable precedence
+  hosts: ubuntu1
+  vars:
+    fav_distro: "Ubuntu"
+  tasks:
+    - name: Show fav_distro
+      debug:
+        msg: Favorite distro is {{ fav_distro }}
