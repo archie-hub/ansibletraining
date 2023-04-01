@@ -1,0 +1,6 @@
+- name: install packages on nodes
+  hosts: all
+  tasks:
+    - name: install a package based on group
+      package:
+        name: "{{ pkg }}"
