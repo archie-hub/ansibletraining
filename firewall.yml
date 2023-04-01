@@ -1,0 +1,10 @@
+---
+ - name: FirewallD
+   hosts: webservers
+   tasks:
+     - name: FirewallD rules
+       firewalld:
+          permanent: yes
+          immediate: yes
+          service: http
+          state: enabled
