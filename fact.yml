@@ -1,0 +1,8 @@
+---
+- name: Gather info
+  hosts: all
+  tasks:
+    - name: Ansible facts
+      debug:
+        msg: "{{ ansible_facts.board_vendor }}"
+    
