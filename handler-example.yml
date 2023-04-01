@@ -1,0 +1,17 @@
+---
+- name: Simple handler example
+  hosts: node1
+  tasks:
+    - name: Create engineers group
+      group:
+        name: engineers
+      notify: add ansible
+    - name: Another task
+      debug:
+        msg: "I am just another task"
+  handlers:
+    - name: add ansible
+      user:
+        name: ansible
+        groups: engineers
+        append: yes
