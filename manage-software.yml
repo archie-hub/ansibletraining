@@ -1,0 +1,25 @@
+---
+- name: Manage Software
+  hosts: ansible1
+  vars:
+    pkg_name: zabbix-agent
+  tasks:
+    - name: Create a new repo
+      yum_repository:
+        file: zabbix
+        name: zabbix-monitoring
+        baseurl: https://repo.zabbix.com/zabbix/5.2/rhel/8/x86_64/
+        description: "Zabbix 5.4 Repo"
+        enabled: yes
+        gpgcheck: no
+    - name: Install zabbix agent
+      yum:
+        name: "{{ pkg_name }}"
+        state: present
+    - name: Get package facts
+      package_facts:
+        manager: auto
+    - name: Display zabbix-agent facts
+      debug:
+        var: ansible_facts.packages[pkg_name]
+      when: pkg_name in ansible_facts.packages

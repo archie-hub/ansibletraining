@@ -12,10 +12,7 @@ ansible4
 ubuntu1
 
 [dbservers]
-node1
-
-[general]
-master
+ansible1
 
 [control]
 rhel1
