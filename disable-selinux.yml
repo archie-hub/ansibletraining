@@ -1,0 +1,23 @@
+---
+- name: Disable SELinux using RHEL
+  hosts: node1
+  vars:
+    selinux_state: disabled
+  tasks:
+    - name: execute the role and catch errors
+      block:
+        - name: apply the role
+          include_role:
+            name: linux-system-roles.selinux
+      rescue:
+        - name: handler errors
+          fail:
+            msg: "role failed"
+          when: not selinux_reboot_required
+        - name: Reboot the host
+          reboot:
+            msg: "system is rebooting"
+          ignore_errors: true
+        - name: Apply the role again
+          include_role:
+            name: linux-system-roles.selinux
