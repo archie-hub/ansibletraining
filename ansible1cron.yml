@@ -1,0 +1,10 @@
+---
+- name: Cron to cleanup tmp
+  hosts: ansible1
+  tasks:
+    - name: Run cron
+      cron:
+        name: "Cleanup"
+        user: ansible
+        job: rm -rf /tmp/*
+        minute: '*/2'
